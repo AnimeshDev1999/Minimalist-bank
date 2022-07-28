@@ -1,0 +1,166 @@
+/*///////// GLOBAL /////////*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+body {
+  background-color: #eee;
+}
+
+/*///////// GENERAL /////////*/
+
+/* primary colour : #eeeeee
+accent colour : #333333
+additional colours:  */
+
+/*///////// HEADER /////////*/
+
+.ico-main {
+  height: 6rem;
+  width: 6rem;
+}
+
+.hed {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.hed-main {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.btn-grp {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  border: none;
+  height: 2rem;
+  width: 6rem;
+  border-radius: 100rem;
+  text-align: center;
+}
+
+.ico-login {
+  height: 1.5rem;
+  width: 2rem;
+  border-radius: 100rem;
+  transition: 0.5s;
+}
+
+.ico-login:hover {
+  background-color: #333;
+  color: #eee;
+}
+
+/*///////// MAIN /////////*/
+
+.main-sec {
+  width: 100vw;
+  height: 90vh;
+  padding-left: 20rem;
+  padding-right: 20rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.bal {
+  color: #333;
+  font-weight: 600;
+}
+
+.bal-sub {
+  color: #666;
+}
+
+.main-hed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.amt {
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  height: 70%;
+  width: 100%;
+}
+
+.side,
+.side-one,
+.side-two,
+.side-three {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.8rem;
+}
+
+.side {
+  grid-area: 1 / 1 / 4 / 2;
+  overflow: hidden;
+}
+
+.side-one {
+  grid-area: 1 / 2 / 2 / 3;
+  background: rgb(219, 202, 90);
+  background: linear-gradient(
+    167deg,
+    rgba(219, 202, 90, 1) 0%,
+    rgba(210, 146, 28, 1) 100%
+  );
+}
+
+.side-two {
+  grid-area: 2 / 2 / 3 / 3;
+  background: rgb(89, 242, 65);
+  background: linear-gradient(
+    167deg,
+    rgba(89, 242, 65, 1) 0%,
+    rgba(15, 131, 9, 1) 100%
+  );
+}
+
+.side-three {
+  grid-area: 3 / 2 / 4 / 3;
+  background: rgb(231, 85, 85);
+  background: linear-gradient(
+    167deg,
+    rgba(231, 85, 85, 1) 0%,
+    rgba(138, 10, 10, 1) 100%
+  );
+}
+
+/*///////// FOOTER /////////*/
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
