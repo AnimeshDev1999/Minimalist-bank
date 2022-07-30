@@ -34,3 +34,27 @@ const account4 = {
 const accounts = [account1, account2, account3, account4];
 
 //Elements
+
+const sideEl = document.querySelector(".side");
+
+//Functions
+
+const displayMovements = function (movements) {
+  sideEl.innerHTML = "";
+  movements.forEach(function (mov, i) {
+    const typ = mov > 0 ? "deposit" : "withdrawl";
+
+    const html = `
+    <div class="list-item">
+        <div class="stts">
+          <p class="${typ}">${i + 1} ${typ.toUpperCase()}</p>
+          <p>TODAY</p>
+        </div>
+        <p>$${mov}</p>
+    </div>
+    `;
+    sideEl.insertAdjacentHTML("afterbegin", html);
+  });
+};
+
+displayMovements(account1.movements);

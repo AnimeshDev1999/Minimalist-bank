@@ -17,6 +17,13 @@ body {
 /* primary colour : #eeeeee
 accent colour : #333333
 additional colours:  */
+.grn {
+  color: green;
+}
+
+.rd {
+  color: rgb(209, 0, 0);
+}
 
 /*///////// HEADER /////////*/
 
@@ -76,7 +83,7 @@ additional colours:  */
   padding-right: 20rem;
   padding-bottom: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
 }
 
@@ -109,7 +116,7 @@ additional colours:  */
   grid-row-gap: 0px;
   row-gap: 1rem;
   column-gap: 1rem;
-  height: 70%;
+  height: 65%;
   width: 100%;
 }
 
@@ -120,11 +127,18 @@ additional colours:  */
   height: 100%;
   width: 100%;
   border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .side {
   grid-area: 1 / 1 / 4 / 2;
-  overflow: hidden;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .side-one {
@@ -135,6 +149,7 @@ additional colours:  */
     rgba(219, 202, 90, 1) 0%,
     rgba(210, 146, 28, 1) 100%
   );
+  padding: 1.5rem;
 }
 
 .side-two {
@@ -145,6 +160,7 @@ additional colours:  */
     rgba(89, 242, 65, 1) 0%,
     rgba(15, 131, 9, 1) 100%
   );
+  padding: 1.5rem;
 }
 
 .side-three {
@@ -155,12 +171,99 @@ additional colours:  */
     rgba(231, 85, 85, 1) 0%,
     rgba(138, 10, 10, 1) 100%
   );
+  padding: 1.5rem;
+}
+
+.deposit {
+  background-color: rgb(0, 195, 0);
+  color: #eee;
+  padding: 0.3rem 1rem;
+  border-radius: 100rem;
+}
+
+.withdrawl {
+  background-color: rgb(212, 0, 0);
+  color: #eee;
+  padding: 0.3rem 1rem;
+  border-radius: 100rem;
+}
+
+.stts {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-item {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*///////// FOOTER /////////*/
 
+.last {
+  display: flex;
+}
 .foot {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 50%;
+}
+
+.current {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.foot p {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tim {
+  font-weight: 600;
+}
+
+.foot-opt {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sortt {
+  border: none;
+  background-color: #eee;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.frm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.frm-fld {
+  width: 30%;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgba(238, 238, 238, 0.595);
+  text-align: center;
+}
+
+.ico-for {
+  padding: 0.3rem 0;
+  height: 1.5rem;
+  width: 5rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
 }
