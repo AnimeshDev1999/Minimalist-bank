@@ -36,6 +36,7 @@ const accounts = [account1, account2, account3, account4];
 //Elements
 
 const sideEl = document.querySelector(".side");
+const balEl = document.querySelector(".amt");
 
 //Functions
 
@@ -57,4 +58,27 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
+const userGen = function (arr) {
+  for (const item of arr) {
+    item.userName = item.owner
+      .toLowerCase()
+      .split(" ")
+      .map(function (nam) {
+        return nam[0];
+      })
+      .join("");
+  }
+};
+
+const calcDisplayBal = function (movements) {
+  const balance = movements.reduce(function (acc, mov) {
+    return acc + mov;
+  }, 0);
+  balEl.textContent = `$${balance}`;
+};
+
+// Active Functions
+
+// displayMovements(account1.movements);
+// userGen(accounts);
+// calcDisplayBal(account1.movements);
