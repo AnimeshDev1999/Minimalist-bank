@@ -37,6 +37,17 @@ const accounts = [account1, account2, account3, account4];
 
 const sideEl = document.querySelector(".side");
 const balEl = document.querySelector(".amt");
+const incomeEl = document.querySelector(".income");
+const outEl = document.querySelector(".outgoing");
+const intEl = document.querySelector(".intrst");
+const loginEl = document.querySelector(".ico-loginn");
+const usrEl = document.querySelector(".usr");
+const passEl = document.querySelector(".pass");
+const greetEl = document.querySelector(".hed-main");
+const mainEl = document.querySelector(".main-sec");
+const transferEl = document.querySelector(".evn-t");
+const amtTraEl = document.querySelector(".t-amt");
+const toTraEl = document.querySelector(".t-name");
 
 //Functions
 
@@ -51,7 +62,7 @@ const displayMovements = function (movements) {
           <p class="${typ}">${i + 1} ${typ.toUpperCase()}</p>
           <p>TODAY</p>
         </div>
-        <p>$${mov}</p>
+        <p>${mov}$</p>
     </div>
     `;
     sideEl.insertAdjacentHTML("afterbegin", html);
@@ -70,15 +81,91 @@ const userGen = function (arr) {
   }
 };
 
-const calcDisplayBal = function (movements) {
-  const balance = movements.reduce(function (acc, mov) {
+const calcDisplayBal = function (accs) {
+  accs.balance = accs.movements.reduce(function (acc, mov) {
     return acc + mov;
   }, 0);
-  balEl.textContent = `$${balance}`;
+  balEl.textContent = `$${accs.balance}`;
+};
+
+const calcSummary = function (accs) {
+  const incoming = accs.movements
+    .filter(function (amt) {
+      return amt > 0;
+    })
+    .reduce(function (itr, item) {
+      return (itr = itr + item);
+    }, 0);
+  incomeEl.textContent = `$${incoming}`;
+
+  const outt = accs.movements
+    .filter(function (amt) {
+      return amt < 0;
+    })
+    .reduce(function (itr, item) {
+      return (itr = itr + item);
+    }, 0);
+  outEl.textContent = `$${Math.abs(outt)}`;
+
+  const interests = accs.movements
+    .filter(function (mov) {
+      return mov > 0;
+    })
+    .map(function (dep) {
+      return (dep * accs.interestRate) / 100;
+    })
+    .filter(function (valu) {
+      return valu >= 1;
+    })
+    .reduce(function (acc, depp) {
+      return (acc = acc + depp);
+    }, 0);
+  intEl.textContent = `$${interests}`;
+};
+
+const updateUI = function (acc) {
+  displayMovements(acc.movements);
+  calcDisplayBal(acc);
+  calcSummary(acc);
 };
 
 // Active Functions
 
-// displayMovements(account1.movements);
-// userGen(accounts);
-// calcDisplayBal(account1.movements);
+userGen(accounts);
+
+// Events
+
+let currentUser;
+
+loginEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  currentUser = accounts.find(function (acc) {
+    return acc.userName === usrEl.value;
+  });
+  if (currentUser?.pin === Number(passEl.value)) {
+    greetEl.textContent = `Welcome back, ${currentUser.owner.split(" ")[0]}`;
+    mainEl.style.opacity = 100;
+    usrEl.value = passEl.value = "";
+    passEl.blur();
+    updateUI(currentUser);
+  }
+});
+
+transferEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  const tAmt = Number(amtTraEl.value);
+  const tName = accounts.find(function (acc) {
+    return acc.userName === toTraEl.value;
+  });
+  amtTraEl.value = toTraEl.value = "";
+  if (
+    tAmt > 0 &&
+    tName &&
+    currentUser.balance >= tAmt &&
+    tName?.userName !== currentUser.userName
+  ) {
+    currentUser.movements.push(-tAmt);
+    tName.movements.push(tAmt);
+    updateUI(currentUser);
+  }
+});

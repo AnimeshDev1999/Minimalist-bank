@@ -26,14 +26,16 @@
       <p class="hed-main">LogIn to continue.</p>
       <img class="ico-main" src="./favicon/logo main.png" alt="icon" />
       <form class="btn-grp">
-        <input class="field" type="text" name="user" placeholder="User" />
+        <input class="field usr" type="text" name="user" placeholder="User" />
         <input
-          class="field"
+          class="field pass"
           type="password"
           name="password"
           placeholder="PIN"
         />
-        <ion-icon class="ico-login" name="arrow-forward-outline"></ion-icon>
+        <button class="ico-loginn def-btn">
+          <ion-icon class="ico-login" name="arrow-forward-outline"></ion-icon>
+        </button>
       </form>
     </header>
     <main class="main-sec">
@@ -57,16 +59,24 @@
         <div class="side-one">
           <h3>Transfer money</h3>
           <form class="frm">
-            <input class="frm-fld" type="text" placeholder="Transfer to" />
-            <input class="frm-fld" type="text" placeholder="Amount" />
-            <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            <input
+              class="frm-fld t-name"
+              type="text"
+              placeholder="Transfer to"
+            />
+            <input class="frm-fld t-amt" type="text" placeholder="Amount" />
+            <button class="def-btn evn-t">
+              <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            </button>
           </form>
         </div>
         <div class="side-two">
           <h3>Request loan</h3>
           <form class="frm">
             <input class="frm-fld" type="text" placeholder="Amount" />
-            <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            <button class="def-btn">
+              <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            </button>
           </form>
         </div>
         <div class="side-three">
@@ -74,15 +84,17 @@
           <form class="frm">
             <input class="frm-fld" type="text" placeholder="User" />
             <input class="frm-fld" type="text" placeholder="PIN" />
-            <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            <button class="def-btn">
+              <ion-icon class="ico-for" name="arrow-forward-outline"></ion-icon>
+            </button>
           </form>
         </div>
       </div>
       <div class="last">
         <div class="foot">
-          <p>IN <span class="current grn">$21,900.00</span></p>
-          <p>OUT <span class="current rd">$5,180.00</span></p>
-          <p>INTEREST <span class="current grn">$328.50</span></p>
+          <p>IN <span class="current grn income">$21,900.00</span></p>
+          <p>OUT <span class="current rd outgoing">$5,180.00</span></p>
+          <p>INTEREST <span class="current grn intrst">$328.50</span></p>
         </div>
         <div class="foot-opt">
           <button class="sortt">&darr; Sort</button>
