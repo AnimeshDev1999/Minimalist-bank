@@ -48,12 +48,21 @@ const mainEl = document.querySelector(".main-sec");
 const transferEl = document.querySelector(".evn-t");
 const amtTraEl = document.querySelector(".t-amt");
 const toTraEl = document.querySelector(".t-name");
+const delUsrEl = document.querySelector(".del-usr");
+const delPinEl = document.querySelector(".del-pin");
+const delBtnEl = document.querySelector(".del-btn");
+const loanAmtEl = document.querySelector(".loan-amt");
+const loanBtnEl = document.querySelector(".loan-btn");
+const sortBtnEl = document.querySelector(".sortt");
 
 //Functions
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   sideEl.innerHTML = "";
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const typ = mov > 0 ? "deposit" : "withdrawl";
 
     const html = `
@@ -168,4 +177,42 @@ transferEl.addEventListener("click", function (e) {
     tName.movements.push(tAmt);
     updateUI(currentUser);
   }
+});
+
+delBtnEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (
+    delUsrEl.value === currentUser.userName &&
+    Number(delPinEl.value) === currentUser.pin
+  ) {
+    const index = accounts.findIndex(function (acc) {
+      return acc.userName === currentUser.userName;
+    });
+    accounts.splice(index, 1);
+    mainEl.style.opacity = 0;
+    delUsrEl.value = delPinEl.value = "";
+    greetEl.textContent = "LogIn to continue.";
+  }
+});
+
+loanBtnEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(loanAmtEl.value);
+  if (
+    amount > 0 &&
+    currentUser.movements.some(function (mov) {
+      return mov >= amount * 0.1;
+    })
+  ) {
+    currentUser.movements.push(amount);
+    updateUI(currentUser);
+  }
+  loanAmtEl.value = "";
+});
+
+let sorted = false;
+sortBtnEl.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(currentUser.movements, !sorted);
+  sorted = !sorted;
 });
