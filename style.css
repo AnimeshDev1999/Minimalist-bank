@@ -119,6 +119,10 @@ additional colours:  */
   font-size: 3rem;
 }
 
+.t-date {
+  font-size: 0.8rem;
+}
+
 .grid-main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
