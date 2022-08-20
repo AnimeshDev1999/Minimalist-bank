@@ -1,8 +1,8 @@
-# The Minimilist Mank (M-Bank) (Webapp)
+# The Minimalist Bank (M-Bank) (Webapp)
 
-The Minimilist Bank (M-Bank) is a powerful javascript based web application and a solo project built down from scratch to showcase the power of **javascript's data structures** and the **DOM manipulation**.
+The Minimalist Bank (M-Bank) is a powerful javascript based web application and a solo project built down from scratch to showcase the power of **javascript's data structures** and the **DOM manipulation**.
 
-The M-Bank web app is the part of the connected project website for the same which is under development. the M-Bank web app will be added to the M-bank commercial website (which is yet another project to showcase the power of **DOM manipulation**) as an option for the users if thew wish to try out the app.
+The M-Bank web app is the part of the connected project website for the same which is under development. the M-Bank web app will be added to the M-bank commercial website (which is yet another project to showcase the power of **DOM manipulation**) as an option for the users if they wish to try out the app.
 
 ## How to use ?
 
@@ -31,11 +31,11 @@ The M-Bank app contains the following features :
   - Auto logout on inactivity
   - "As of" shows the updated date
   - Working account deletion
-  - Transactions upto a week will show "Days ago" or "Today"
+  - Transactions up to a week will show "Days ago" or "Today"
 
 - Other features :
 
-  - The loan can only be granted if account have atlest one positive transaction and loan amount is determined on the percentage of the biggest transaction
+  - The loan can only be granted if account have at lest one positive transaction and loan amount is determined on the percentage of the biggest transaction
 
   - Interest rates may be different for different users
 
