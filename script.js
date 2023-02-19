@@ -66,6 +66,8 @@ const loanBtnEl = document.querySelector(".loan-btn");
 const sortBtnEl = document.querySelector(".sortt");
 const balSubEl = document.querySelector(".bal-sub");
 const timEl = document.querySelector(".tim");
+const overlayEl = document.querySelector(".overlay");
+const popupEl = document.querySelector(".popup");
 
 //Functions
 
@@ -199,6 +201,11 @@ const startLogOutTimer = function () {
   tick();
   const timer = setInterval(tick, 1000);
   return timer;
+};
+
+const closePopup = () => {
+  popupEl.classList.add("hid");
+  overlayEl.classList.add("hid");
 };
 
 // Active Functions
